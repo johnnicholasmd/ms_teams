@@ -1,0 +1,55 @@
+/* Styles for devices with width up to 600px */
+@media only screen and (max-width: 600px) {
+
+    /* Working for width: 400px, height: 600px */
+    html, body {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+
+    div.chatbox-toggle {
+        display: none;
+        width: 1px;
+        height: 1px;
+    }
+    
+    div.logo-container{
+        display: none;
+        width: 1px;
+        height: 1px;
+    }
+
+    div.second-logo-container{
+        display: none;
+        width: 1px;
+        height: 1px;
+    }
+
+    div.chatbox-wrapper {
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 70%;
+        width: 100%;
+        margin: 0;
+        display: flex;
+    }
+
+    div.chatbox-message-wrapper.show {
+        position: relative;
+        z-index: -1;
+        transform: none;
+        display: block;
+        overflow: visible;
+        border-radius: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        flex-grow: 1;
+    }
+
+    /*New Test*/
+  }

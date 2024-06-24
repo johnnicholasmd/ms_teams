@@ -1,0 +1,249 @@
+
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+
+        <title>Dashboard</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+        {% comment %} bootstrap {% endcomment %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    
+        
+
+        {% comment %} simple datatables {% endcomment %}
+        {% comment %} <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script> {% endcomment %}
+
+        {% comment %} chart js {% endcomment %}
+        <script src="https://cdnjs.com/libraries/Chart.js"></script>
+
+        {% comment %} own css {% endcomment %}
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+
+        
+    </head>
+    <body>
+        <div class="main-wrapper">
+            <div class="container-self">
+                <h1>Dashboard</h1>
+            </div>
+
+            {% comment %} <div class="center-container">
+                <div class="link-container" id = "LinkContainer">
+                    <a href="{% url 'chat' %}" class="link-item">Home</a>
+                    <a href="{% url 'we_do' %}" class="link-item">We Do</a>
+                    <a href="{% url 'products' %}" class="link-item">Products</a>
+                    <a href="{% url 'claims_services' %}" class="link-item">Claims and Services</a>
+                    <a href="{% url 'work_with_us' %}" class="link-item">Work with Us</a>
+                    <a href="{% url 'about_us' %}" class="link-item">About Us</a>
+                    <a href="{% url 'dashboard' %}" class="link-item">Analytics</a>
+                    <a href="javascript:void(0);" class="icon link-item" onclick="navDropdown()">&#9776;</a>
+                </div>
+            </div> {% endcomment %}
+
+            <section class="pt-5 pb-5 shadow-sm" style="background-color:rgba(255, 236, 125, 0.6)">
+                <div class="container">
+                    
+                    <div class="mb-3 d-flex align-items-stretch">
+                        <form action="/dashboard/${tempId}/" method="post">
+                            {% comment %} {% csrf_token %} {% endcomment %}
+                            {{ form }}
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                    <div class="row">
+                    <!--ADD CLASSES HERE d-flex align-items-stretch-->
+                        <div class="col-lg-3 mb-3 d-flex align-items-stretch">
+                            <div class="card flex-fill" style="border-width:3px">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-primary">Human Takeover Rate</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Percentage of conversations escalated to a live agent</h6>
+                                    <h1 class="card-text text-end">{{htr|safe}}%</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
+                        <div class="col-lg-3 mb-3 d-flex align-items-stretch">
+                            <div class="card flex-fill" style="border-width:3px">                               
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-primary">User Retention</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Number of users that used the chatbot more than once</h6>
+                                    <h1 class="card-text text-end">{{ur|safe}}</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
+                        <div class="col-lg-3 mb-3 d-flex align-items-stretch">
+                            <div class="card flex-fill" style="border-width:3px">                                
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-primary">Interaction Rate</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Average number of messages exchanged by the user with the chatbot</h6>
+                                    <h1 class="card-text text-end">{{ir|safe}}</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
+                        <div class="col-lg-3 mb-3 d-flex align-items-stretch">
+                            <div class="card flex-fill" style="border-width:3px">                                
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-primary">User Feedback</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Average user feedback rating out of 5<br><br></h6>
+                                    <h1 class="card-text text-end">{{uf|safe}}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    <!--ADD CLASSES HERE d-flex align-items-stretch-->
+                        <div class="col-lg-6 mb-3 d-flex align-items-stretch">
+                            <div class="card flex-fill" style="border-width:3px">                                
+                                <div class="card-body d-flex flex-column">
+                                    <canvas id="hourlyChart"></canvas> 
+                                </div>
+                            </div>
+                            {% comment %} <div class="flex-fill" style="border-width:3px">
+                                <canvas id="hourlyChart"></canvas>                 
+                            </div> {% endcomment %}
+                            
+                        </div>
+                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
+                        <div class="col-lg-6 mb-3 d-flex align-items-stretch">
+                            <div class="card flex-fill" style="border-width:3px">                                
+                                <div class="card-body d-flex flex-column">
+                                    <canvas id="dailyChart"></canvas> 
+                                </div>
+                            </div>
+                            {% comment %} <div class="flex-fill" style="border-width:3px">
+                                <canvas id="dailyChart"></canvas>                 
+                            </div> {% endcomment %}
+                        </div>       
+
+                    </div>
+                </div>
+            </section>
+
+            
+            
+        </div>
+
+        <div class="chatbox-wrapper" title="Chat with ALiCIA">
+            <div class="chatbox-toggle">
+                <i class='bx bx-message-rounded-dots'></i>
+            </div>
+            <div class="chatbox-message-wrapper">
+                <div class="chatbox-message-header">
+                    <div class="chatbox-message-profile">
+                        <img src="{% static 'images/ai.png' %}" alt="" class="chatbox-message-image">
+                        <div>
+                            <h4 class="chatbox-message-name">Chat with ALiCIA SNow</h4>
+                            <div class="chatbox-message-status">
+                                <div class="status-indicator online"></div>
+                                <p>Online</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chatbox-message-dropdown">
+                        <i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle' ></i>
+                        <ul class="chatbox-message-dropdown-menu">
+                            <li>
+                                <a href="#">Search</a>
+                            </li>
+                            <li>
+                                <a href="#">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="chatbox-message-content">
+                    <div class="chatbox-message-no-message">
+                        <h3>Hi! How may I assist you?</h3>
+                        <h5>Type "exit" to end chat</h5>
+                    </div>
+                </div>
+                <div class="chatbox-message-bottom" id="temp-id" data-temp-id="{{ temp_id }}">
+
+                    <form id="chatForm" method="post" class="chatbox-message-form" enctype="multipart/form-data">
+                        {% comment %} {% csrf_token %} {% endcomment %}
+                        <textarea id="userMessage" name="userMessage" rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
+                        <button type="button" onclick="sendMessage()" class="chatbox-message-submit"><i class='bx bx-send'></i></button>
+                    </form>
+                    
+                </div>
+            
+            </div>
+
+        </div>
+        <script src="{% static 'js/script.js' %}"></script>
+        <script>
+            function navDropdown() {
+                var x = document.getElementById("LinkContainer");
+                if (x.className === "link-container") {
+                x.className += " responsive";
+                } else {
+                x.className = "link-container";
+                }
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx_h = document.getElementById('hourlyChart');
+            const ctx_d = document.getElementById('dailyChart');
+
+            new Chart(ctx_h, {
+                type: 'line',
+                data: {
+                labels: {{labels_h|safe}},
+
+                datasets: [{
+                    label: 'Number of Conversations / Hour',
+                    data: {{data_h|safe}},
+                    borderWidth: 1
+                }]
+                },
+                options: {
+                scales: {
+                    y: {
+                    beginAtZero: true
+                    }
+                }
+                }
+            });
+
+            new Chart(ctx_d, {
+                type: 'line',
+                data: {
+                labels: {{labels_d|safe}},
+
+                datasets: [{
+                    label: 'Number of Conversations / Day of Week',
+                    data: {{data_d|safe}},
+                    borderWidth: 1
+                }]
+                },
+                options: {
+                scales: {
+                    y: {
+                    beginAtZero: true
+                    }
+                }
+                }
+            });
+
+
+
+
+        </script>
+
+    </body>
+</html>

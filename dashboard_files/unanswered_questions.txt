@@ -1,0 +1,25 @@
+i want to know some info about a ticket
+can I cancel my ticket?
+i want to create tickt
+i want to check ticket information
+can you check the status of the ticket
+i want to create
+list that incident
+why?
+INC0010019
+what are the other details of  INC0010013
+INC0010119
+i have data discrepanct
+how to use automatic replies in Outlook 2010 for Exchange accounts?
+whatare the specs required for upgrading to newer versions o OS X
+What is a cookie?
+on safari?
+what is cache
+<<<<<<< HEAD
+how to reset password
+=======
+how can i make the world go round?
+the Earth is flat, right?
+the Earth is flat, right?
+create ticket
+>>>>>>> 602346d8cda15836a742447ecae71941d932c8c4

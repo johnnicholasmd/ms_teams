@@ -1,0 +1,131 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style2.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/coe.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/small_viewport.css' %}"
+    />
+
+    <title>SNAP - ServiceNow's AI Partner</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/favicon.ico' %}"
+    />
+  </head>
+  <body>
+
+    <div class="chatbox-wrapper" title="Chat with SNAP">
+      <div class="chatbox-toggle">
+        <i class="bx bx-message-rounded-dots"></i>
+      </div>
+      <!-- show chat by default -->
+      <div class="chatbox-message-wrapper">
+        <div class="chatbox-message-header">
+          <div class="chatbox-message-profile">
+            <img
+              src="{% static 'images/ai.PNG' %}"
+              alt=""
+              class="chatbox-message-image"
+            />
+            <div>
+              <h4 class="chatbox-message-name">Chat with SNAP</h4>
+              <div class="chatbox-message-status">
+                <div class="status-indicator online"></div>
+                <p>Online</p>
+              </div>
+            </div>
+          </div>
+          <div class="chatbox-message-dropdown">
+            <i
+              class="bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle"
+            ></i>
+            <ul class="chatbox-message-dropdown-menu">
+              <li>
+                <a href="#">Search</a>
+              </li>
+              <li>
+                <a href="#">Report</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="chatbox-message-content">
+          <div class="chatbox-message-no-message">
+            <h5>Please be advised that your data privacy is important to us, and we are committed to safeguarding your information in accordance with applicable laws and regulations.</h5>
+          </div>
+
+            <!-- <div class="button-inner-intent" id="btnCont-inner" hidden>
+            <div class="btn-req">
+              <button>Request for COE</button>
+            </div>
+            <div class="btn-info">
+              <button>COE Informations</button>
+            </div>
+          </div> -->
+
+        </div>
+        <div
+          class="chatbox-message-bottom"
+          id="temp-id"
+          data-temp-id="{{ temp_id }}"
+          data-name="{{ name }}"
+        >
+          <form
+            id="chatForm"
+            method="post"
+            class="chatbox-message-form"
+            enctype="multipart/form-data"
+          >
+            {% comment %} {% csrf_token %} {% endcomment %}
+
+            <!-- TextArea Container -->
+            <div class="cont-chatbox-input">
+              <textarea
+                id="userMessage"
+                name="userMessage"
+                rows="1"
+                placeholder="Type message..."
+                class="chatbox-message-input"
+              ></textarea>
+            </div>
+            <!-- Submit Button Container -->
+            <div class="cont-chatbox-submit">
+              <button
+                type="submit"
+                class="chatbox-message-submit"
+              >
+                <i class="bx bx-send"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/ticket_create.js' %}"></script>
+    <script src="{% static 'js/ticket_followup.js' %}"></script>
+    <script src="{% static 'js/ticket_count.js' %}"></script>
+    <script src="{% static 'js/ticket_details.js' %}"></script>
+    <script src="{% static 'js/ticket_number.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+
+</html>

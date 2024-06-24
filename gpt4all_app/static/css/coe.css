@@ -1,0 +1,243 @@
+.button-purpose{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10px; */
+    margin-top: -15px;
+    margin-left: 5px;
+    width: 90%;
+    /* border: 1px solid black; */
+    flex-direction: column;
+  }
+  
+  
+  .btn-travel, .btn-cc,
+  .btn-travel button, .btn-cc button{
+    cursor: pointer;
+  }
+  
+  .btn-travel button:hover, .btn-cc button:hover{
+    background-color: var(--yellow);
+  }
+  
+  
+  .btn-travel, 
+  .btn-cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .btn-travel button,
+  .btn-cc button {
+    border: 2px solid var(--yellow);
+    cursor: pointer;
+    background-color: transparent;
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .btn-travel button{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .btn-cc button{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  /* -------- Options -------- */
+  
+  .button-options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10px; */
+    margin-top: -15px;
+    margin-left: 5px;
+    width: 90%;
+    /* border: 1px solid black; */
+    flex-direction: column;
+  }
+  
+  
+  .btn-yes, .btn-modify, .btn-no,
+  .btn-yes button, 
+  .btn-modify button, 
+  .btn-no button{
+    cursor: pointer;
+  }
+  
+  .btn-yes button:hover, 
+  .btn-modify button:hover, 
+  .btn-no button:hover{
+    background-color: var(--yellow);
+  }
+  
+  
+  .btn-yes, 
+  .btn-modify, 
+  .btn-no{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .btn-yes button, 
+  .btn-modify button, 
+  .btn-no button{
+    border: 2px solid var(--yellow);
+    cursor: pointer;
+    background-color: transparent;
+    width: 100%;
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+/* OpenedBy */
+
+.cont-openedBy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-top: -15px;
+  margin-left: 5px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cont-openedBy select {
+  border: 2px solid var(--yellow);
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+
+.cont-openedBy select option {
+  background-color: var(--yellow);
+  text-align: center;
+}
+
+/* Urgency */
+
+.cont-urgency {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-top: -15px;
+  margin-left: 5px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cont-urgency select {
+  border: 2px solid var(--yellow);
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+
+.cont-urgency select option {
+  background-color: var(--yellow);
+  text-align: center;
+}
+
+
+/* Impact */
+
+.cont-impact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-top: -15px;
+  margin-left: 5px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cont-impact select {
+  border: 2px solid var(--yellow);
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+
+.cont-impact select option {
+  background-color: var(--yellow);
+  text-align: center;
+}
+
+/* Category */
+.cont-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-top: -15px;
+  margin-left: 5px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cont-category select {
+  border: 2px solid var(--yellow);
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+
+.cont-category select option {
+  background-color: var(--yellow);
+  text-align: center;
+}
+
+/* Category */
+.cont-subcategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-top: -15px;
+  margin-left: 5px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cont-subcategory select {
+  border: 2px solid var(--yellow);
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+
+.cont-subcategory select option {
+  background-color: var(--yellow);
+  text-align: center;
+}
